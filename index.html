@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+	<title>PolyTest</title>
+	<meta charset="UTF-8">
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<style is="custom-style" include "form-styles"></style>
+	<link rel="import" href="birthday-input.html">
+</head>
+
+<body>
+
+	<template is="dom-bind">
+
+		<form action="http://httpbin.org/get" type="get">
+
+			<birthday-input birthday="{{_date}}"></birthday-input>
+			<input type="submit" class="btn"><br>
+
+			secrete hidden input<input name="birthday" value="[[_date]]">
+		</form>
+
+<!-- test start here -->
+<style>
+--paper-checkbox-unchecked-background-color:{
+	red
+}
+</style>
+<paper-checkbox>label</paper-checkbox>
+
+<paper-checkbox checked> label</paper-checkbox>
+
+	</template>
+
+</body>
+
+</html>

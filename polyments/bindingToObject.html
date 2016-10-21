@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="employee-record">
+
+	<template>
+		<div>Your Jedi is: <span>{{user.jedi}}</span></div>
+		<button on-tap="changeManager">Change Jedi</button>
+
+		<div> Your ideal lightsaber color is:<span>{{user.color}}</span> </div>
+		<form>
+			<input value="{{user.color}}">
+		</form>
+
+
+
+
+	</template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'employee-record',
+        properties:{
+            user: {
+                type: Object,
+                value: function(){
+                    return {name: 'v', jedi: 'Qui-Gon', color: 'green'};
+                }
+            }
+        },
+    changeManager: function(){
+        var jediList = ['Yoda', 'Obi-Wan', 'Mace', 'Ki-Adi', 'Plo', 'Qui-Gon'];
+        var userChoice = this.get('user.jedi');
+        for (var i =0; i<jediList; i++){
+            if (userChoice == jediList[i]){
+                var newChoice = 'Kit'
+                break;
+            }
+        }
+        this.set('user.jedi',newChoice );
+    },
+
+    changeColor: function(){
+        var colorList = ['red', 'yellow', 'blue', 'green', 'purple'];
+        this.set('user.color', colorList[0]);
+    }
+
+    });
+</script>
